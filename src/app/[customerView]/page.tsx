@@ -10,13 +10,13 @@ function CustomerView() {
   const router = useRouter();
   const { id } = router.query
   console.log(id)
-  const customerId = Number(id);
+  const customerId = id;
   console.log(customerId)
    
   console.log(customerId) 
   const { customers } = useCustomerContext();
 
-  const customer = customers.find((customer) => customer.id === Number(customerId));
+  const customer = customers.find((customer) => customer.id === customerId);
 
     if (!customer) {
       
