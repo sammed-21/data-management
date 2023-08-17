@@ -29,7 +29,7 @@ const Navbar = () => {
           <div className='flex px-3  h-[10vh] items-center justify-between   bg-black text-white      '>
           <Link href="/">
           <h2 className="font-bold-xl font-mono">
-            <Link href={'/'} >User Management</Link>
+            <Link href={'/'} >User Data Management</Link>
           </h2>
          </Link>
          <div className="flex gap-2 items-center">
