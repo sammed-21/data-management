@@ -22,7 +22,10 @@ This is a web application built using Next.js and React that allows users to man
 - Next.js
 - React
 - TypeScript
-- TailwindCss
+- Tailwind CSS
+- React Hook Form (for form handling)
+- Yup (for form validation)
+- Context API (for state management)
 
 ## Credits
 
