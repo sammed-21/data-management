@@ -3,12 +3,6 @@ import React from 'react';
 import { useCustomerContext } from "@/context/CustomerContext"
 import Link from 'next/link';
  
-interface Customer {
-  id: number;
-  name: string;
-  email: string;
-  phoneNumber: string;
-}
 
 const CustomerList: React.FC = () => {
   

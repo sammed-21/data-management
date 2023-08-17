@@ -19,11 +19,11 @@ type CustomerData = {
 
 const schema = yup
   .object({
-    name: yup.string().required("Name is required"),
-    email: yup.string().email("Invalid email").required("Email is required"),
+    name: yup.string().required("name is required"),
+    email: yup.string().email("invalid email").required("Email is required"),
     phoneNumber: yup
       .string()
-      .matches(/^\d+$/, "Invalid phone number")
+      .matches(/^\d+$/, "invalid phone number")
       .required("Phone number is required"),
     message: yup.string().required("Message is required"),
   })
@@ -56,7 +56,7 @@ const CustomerView: React.FC<pageProps> = ({ params }) => {
     console.log(data);
     updateCustomer(customer.id || "", data);
     router.push("/");
-    // Implement your update logic here
+ 
   };
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-gray-100">

@@ -4,8 +4,8 @@ This is a web application built using Next.js and React that allows users to man
 
 ## Getting Started
 
-1. Clone this repository: `git clone https://github.com/your-username/customer-data-management-app.git`
-2. Navigate to the project directory: `cd customer-data-management-app`
+1. Clone this repository: `git clone https://github.com/sammed-21/data-management.git`
+2. Navigate to the project directory: `cd data-management`
 3. Install dependencies: `npm install`
 4. Run the development server: `npm run dev`
 5. Open your browser and visit: `http://localhost:3000`
@@ -23,9 +23,9 @@ This is a web application built using Next.js and React that allows users to man
 - React
 - TypeScript
 - Tailwind CSS
-- React Hook Form (for form handling)
-- Yup (for form validation)
-- Context API (for state management)
+- React Hook Form 
+- Yup  
+- Context API 
 
 ## Credits
 
