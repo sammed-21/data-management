@@ -1,10 +1,21 @@
+// CustomerView.js
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useCustomerContext } from "@/context/CustomerContext";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+
+interface pageProps {
+  params: { id: string };
+}
+type CustomerData = {
+  name: string;
+  email: string;
+  phoneNumber: string;
+  message: string;
+};
 
 const schema = yup
   .object({
@@ -20,9 +31,9 @@ const schema = yup
 
 type FormData = yup.InferType<typeof schema>;
 
-const AddCustomerPage: React.FC = () => {
-  const { addCustomer } = useCustomerContext();
+const CustomerView: React.FC<pageProps> = ({ params }) => {
   const router = useRouter();
+  const customerId = params.id;
   const {
     register,
     handleSubmit,
@@ -30,16 +41,28 @@ const AddCustomerPage: React.FC = () => {
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: FormData) => {
-    addCustomer(data);
-    router.push("/");
-  };
+  // console.log(customerId);
 
+  // console.log(customerId);
+  const { updateCustomer, customers } = useCustomerContext();
+
+  const customer = customers.find((customer) => customer.id === customerId);
+
+  if (!customer) {
+    return <div>User not found</div>;
+  }
+
+  const onSubmit = (data: CustomerData) => {
+    console.log(data);
+    updateCustomer(customer.id || "", data);
+    router.push("/");
+    // Implement your update logic here
+  };
   return (
-    <div className="flex items-center  min-h-[80vh] w-[100%] justify-center bg-gray-100">
+    <div className="min-h-[80vh] flex items-center justify-center bg-gray-100">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-white p-8 rounded shadow-md space-y-4 w-[60%]"
+        className="bg-white p-8 rounded shadow-md space-y-4 w-[70%]"
       >
         <div className={`relative ${errors.name ? "border-red-500" : ""}`}>
           <label className="block text-sm font-medium text-gray-800">
@@ -48,7 +71,7 @@ const AddCustomerPage: React.FC = () => {
           <input
             className="mt-1 p-2 border rounded w-full"
             {...register("name")}
-            placeholder="Name"
+            defaultValue={customer.name}
           />
           {errors.name && (
             <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
@@ -62,7 +85,7 @@ const AddCustomerPage: React.FC = () => {
           <input
             className="mt-1 p-2 border rounded w-full"
             {...register("email")}
-            placeholder="email"
+            defaultValue={customer.email}
           />
           {errors.email && (
             <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
@@ -78,7 +101,7 @@ const AddCustomerPage: React.FC = () => {
           <input
             className="mt-1 p-2 border rounded w-full"
             {...register("phoneNumber")}
-            placeholder="phoneNumber"
+            defaultValue={customer.phoneNumber}
           />
           {errors.phoneNumber && (
             <p className="text-red-500 text-xs mt-1">
@@ -94,7 +117,7 @@ const AddCustomerPage: React.FC = () => {
           <textarea
             className="mt-1 p-2 border rounded w-full"
             {...register("message")}
-            placeholder="message"
+            defaultValue={customer.message}
           />
           {errors.message && (
             <p className="text-red-500 text-xs mt-1">
@@ -103,12 +126,12 @@ const AddCustomerPage: React.FC = () => {
           )}
         </div>
 
-        <button type="submit" className="px-5 py-1 w-full text-white bg-black">
-          Add Customer
+        <button type="submit" className="px-5 py-1 w-full text-white bg-black hover:bg-gray-300 ">
+          Edit
         </button>
       </form>
     </div>
   );
 };
 
-export default AddCustomerPage;
+export default CustomerView;

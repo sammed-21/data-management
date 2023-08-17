@@ -26,10 +26,10 @@ const Navbar = () => {
     // const session = useSession();
     const router = useRouter();
     return (
-          <div className='flex px-3  h-[10vh] items-center justify-between     rounded-lg z-10 backdrop-filter bg-black backdrop-blur-xl  bg-opacity-50   '>
+          <div className='flex px-3  h-[10vh] items-center justify-between   bg-black text-white      '>
           <Link href="/">
           <h2 className="font-bold-xl font-mono">
-          IamSAMMED
+            <Link href={'/'} >User Management</Link>
           </h2>
          </Link>
          <div className="flex gap-2 items-center">

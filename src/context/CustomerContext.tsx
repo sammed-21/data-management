@@ -18,11 +18,11 @@ interface CustomerContextProps {
 }
 
 const initialCustomers: Customer[] = [
-  { id: uuidv4(), name: 'John Doe', email: 'john@example.com', phoneNumber: '123-456-7890', message: "this is the john doe" },
-  { id: uuidv4(), name: 'sam Doe', email: 'john@example.com', phoneNumber: '123-456-7890', message: "this is the john doe" },
-  { id: uuidv4(), name: 'Dog Doe', email: 'john@example.com', phoneNumber: '123-456-7890', message: "this is the john doe" },
-  { id: uuidv4(), name: 'Dog Doe', email: 'john@example.com', phoneNumber: '123-456-7890', message: "this is the john doe" },
-  { id: uuidv4(), name: 'Aks Doe', email: 'john@example.com', phoneNumber: '123-456-7890', message: "this is the john doe" },
+  { id: uuidv4(), name: 'John Doe', email: 'john@example.com', phoneNumber: '1234567890', message: "this is the john doe" },
+  { id: uuidv4(), name: 'sam Doe', email: 'john@example.com', phoneNumber: '9236467890', message: "this is the john doe" },
+  { id: uuidv4(), name: 'Dog Doe', email: 'john@example.com', phoneNumber: '7234567890', message: "this is the john doe" },
+  { id: uuidv4(), name: 'Dog Doe', email: 'john@example.com', phoneNumber: '6234567890', message: "this is the john doe" },
+  { id: uuidv4(), name: 'Aks Doe', email: 'john@example.com', phoneNumber: '7234567890', message: "this is the john doe" },
 ];
 
 const CustomerContext = createContext<CustomerContextProps | undefined>(undefined);
